@@ -8,13 +8,17 @@ const btnStart = document.getElementById("btnStart");
 const musicaFiesta = document.getElementById("musicaFiesta");
 
 // ===============================
-// PLAYLIST
+// PLAYLIST REAL
 // ===============================
 
 const canciones = [
   {
-    nombre: "Haddaway - What is Love",
-    archivo: "assets/music/HaddawayWhatisLove.mp3"
+  nombre: "Haddaway - What is Love",
+  archivo: "assets/music/HaddawayWhatisLove.mp3"
+},
+  {
+    nombre: "Alphaville - Big In Japan",
+    archivo: "assets/music/AlphavilleBigInJapan.mp3"
   },
   {
     nombre: "La Bouche - Be My Lover",
@@ -25,23 +29,50 @@ const canciones = [
     archivo: "assets/music/Boombastic.mp3"
   },
   {
-    nombre: "Alphaville - Big In Japan",
-    archivo: "assets/music/AlphavilleBigInJapan.mp3"
-  },
-  {
     nombre: "Depeche Mode",
     archivo: "assets/music/DepecheMode.mp3"
   },
   {
+    nombre: "Eurythmics - Sweet Dreams",
+    archivo: "assets/music/EurythmicsSweetDreams.mp3"
+  },
+  {
+    nombre: "Fugees - Killing Me Softly",
+    archivo: "assets/music/FugeesKillingMeSoftlyWith.mp3"
+  },
+  {
+    nombre: "Coolio - Gangsta's Paradise",
+    archivo: "assets/music/GangstaParadise.mp3"
+  },
+  {
+    nombre: "Cyndi Lauper - Girls Just Want To Have Fun",
+    archivo: "assets/music/GirlsJustWanttoHaveFun.mp3"
+  },
+ 
+  {
+    nombre: "Blondie - Heart Of Glass",
+    archivo: "assets/music/HeartOfGlass.mp3"
+  },
+  {
     nombre: "Kylie Minogue",
     archivo: "assets/music/kylie.mp3"
+  },
+  {
+    nombre: "Madonna - La Isla Bonita",
+    archivo: "assets/music/MadonnaLaIslaBonita.mp3"
+  },
+  {
+    nombre: "Vengaboys - We Like To Party",
+    archivo: "assets/music/WeliketoParty.mp3"
   }
+  
+  
 ];
 
 let cancionActual = 0;
 
 // ===============================
-// ELEMENTOS DEL PLAYER
+// ELEMENTOS DEL REPRODUCTOR
 // ===============================
 
 const musicPlayer = document.getElementById("musicPlayer");
@@ -53,7 +84,7 @@ const btnPlaylist = document.getElementById("btnPlaylist");
 const listaCanciones = document.getElementById("listaCanciones");
 
 // ===============================
-// FUNCIONES MÚSICA
+// FUNCIONES DE MÚSICA
 // ===============================
 
 function cargarCancion(indice) {
@@ -97,7 +128,7 @@ function cancionAnterior() {
 function crearPlaylist() {
   listaCanciones.innerHTML = "";
 
-  canciones.forEach((cancion, indice) => {
+  canciones.forEach(function (cancion, indice) {
     const item = document.createElement("li");
     item.innerText = cancion.nombre;
 
@@ -115,7 +146,7 @@ function crearPlaylist() {
 function actualizarPlaylist() {
   const items = listaCanciones.querySelectorAll("li");
 
-  items.forEach((item, indice) => {
+  items.forEach(function (item, indice) {
     item.classList.remove("activo");
 
     if (indice === cancionActual) {
@@ -138,7 +169,7 @@ btnStart.addEventListener("click", function () {
 });
 
 // ===============================
-// CONTROLES PLAYER
+// CONTROLES DEL REPRODUCTOR
 // ===============================
 
 btnPlayPause.addEventListener("click", function () {
